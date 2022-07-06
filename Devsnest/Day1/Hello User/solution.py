@@ -1,4 +1,3 @@
-from collections import deque
 def solve(str):
     return f'Hello, {str}!';
 
