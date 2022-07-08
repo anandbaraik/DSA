@@ -1,4 +1,4 @@
-> Given a string str1, Return the array containing the frequency of each character in the order of their occurrence.
+> Given `a` string str1, Return the array containing the frequency of each character in the order of their occurrence.
 
 # Input Format
 
