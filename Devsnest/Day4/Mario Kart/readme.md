@@ -4,7 +4,8 @@ Return the players with the second lowest score.
 
 If there are multiple players with same score, return them in non-decreasing order.
 
-#cInput Format
+# Input Format
+
 First Parameter - 2D array leaderboard
 
 # Output Format
