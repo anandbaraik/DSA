@@ -32,3 +32,5 @@ Expected Space Complexity: O(1)
 
 Constraints:
 1<=N<=105
+
+Q: [Question link](https://leetcode.com/problems/count-the-digits-that-divide-a-number/)
