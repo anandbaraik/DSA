@@ -10,7 +10,7 @@ You may assume each function in the array accepts one integer as input and retur
 
 # Example 1
 
-```
+```js
 Input: functions = [x => x + 1, x => x * x, x => 2 * x], x = 4
 Output: 65
 Explanation:
@@ -23,7 +23,7 @@ Starting with x = 4.
 
 # Example 2
 
-```
+```js
 Input: functions = [x => 10 * x, x => 10 * x, x => 10 * x], x = 1
 Output: 1000
 Explanation:
@@ -35,7 +35,7 @@ Evaluating from right to left ...
 
 # Example 3
 
-```
+```js
 Input: functions = [], x = 42
 Output: 42
 Explanation:
@@ -44,8 +44,8 @@ The composition of zero functions is the identity function
 
 # Constraints:
 
-- -1000 <= x <= 1000
-- 0 <= functions.length <= 1000
+- `-1000 <= x <= 1000`
+- `0 <= functions.length <= 1000`
 - all functions accept and return a single integer
 
 # Solution
