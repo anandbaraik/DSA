@@ -81,7 +81,7 @@ function memoize(fn) {
   return function (...args) {
     let key = JSON.stringify(args);
     if (key in cache) return cache[key];
-    let result = fn(...args);
+    let result = fn.apply(this, args);
     cache[key] = result;
     return result;
   };
