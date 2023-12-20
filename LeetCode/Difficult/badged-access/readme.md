@@ -83,5 +83,41 @@ Expected output: ["Raj", "Paul"], ["Paul"]
 # Solution
 
 ```js
+function tracker(records) {
+  const entryOnly = new Set();
+  const exitOnly = new Set();
+  const entryList = new Set();
+  records.forEach(([name, type]) => {
+    const status = entryList.has(name);
+    if (status) {
+      if (type === "enter") {
+        entryOnly.add(name);
+      } else if (type === "exit") {
+        entryList.delete(name);
+      }
+    } else {
+      if (type === "enter") {
+        entryList.add(name);
+      } else if (type === "exit") {
+        exitOnly.add(name);
+      }
+    }
+  });
 
+  return {
+    entryOnly: [...new Set([...entryOnly, ...entryList])],
+    exitOnly: [...exitOnly],
+  };
+}
+
+let { entryOnly, exitOnly } = tracker([
+  ["Raj", "enter"],
+  ["Paul", "enter"],
+  ["Paul", "exit"],
+  ["Paul", "exit"],
+  ["Paul", "enter"],
+  ["Raj", "enter"],
+]);
+console.log(entryOnly);
+console.log(exitOnly);
 ```
