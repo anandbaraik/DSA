@@ -66,7 +66,13 @@ The cancellation was scheduled to occur after a delay of cancelTimeMs (100ms), w
  * @param {number} t
  * @return {Function}
  */
-var cancellable = function (fn, args, t) {};
+var cancellable = function (fn, args, t) {
+  const timeoutId = setTimeout(() => {
+    fn(...args);
+  }, t);
+
+  return () => clearTimeout(timeoutId);
+};
 
 /**
  *  const result = [];
