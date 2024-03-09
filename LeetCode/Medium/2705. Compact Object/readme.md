@@ -36,5 +36,20 @@ Explanation: obj[0], obj[1], obj[3][0], and obj[4][0] were falsy and removed.
 # Solution
 
 ```js
-
+/**
+ * @param {Object|Array} obj
+ * @return {Object|Array}
+ */
+var compactObject = function (obj) {
+  if (Array.isArray(obj)) {
+    return obj.filter((item) => !!item).map(compactObject);
+  } else if (typeof obj === "object" && obj !== null) {
+    let truthyValues = Object.entries(obj)
+      .filter(([a, b]) => !!b)
+      .map(([key, value]) => [key, compactObject(value)]);
+    return Object.fromEntries(truthyValues);
+  } else {
+    return obj ? obj : undefined;
+  }
+};
 ```
