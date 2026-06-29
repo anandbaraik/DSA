@@ -85,25 +85,49 @@ requestIds[i] consists of English letters and digits
 
 ```javascript 
 /**
-
  * @param {number} gap
-
  * @param {string[]} requestIds
-
  * @param {number[]} timestamps
-
  * @return {number}
-
  */
 
 var getRetryCount = function(gap, requestIds, timestamps) {
-
-
-
+//code
 };
 
 ```
 #solution
 
-```
+```js
+/**
+ * @param {number} gap
+ * @param {string[]} requestIds
+ * @param {number[]} timestamps
+ * @return {number}
+ */
+var getRetryCount = function(gap, requestIds, timestamps) {
+    let retryCount = 0;
+    let map = new Map();
+    for(let i = 0; i < requestIds.length; i++) {
+        let currentRequestId = requestIds[i];
+        let currentTimeStamp = timestamps[i];
+        //check if currentRequestId exists on map
+        if(map.has(currentRequestId)) {
+            let previousTimeStamp = map.get(currentRequestId);
+            let difference = currentTimeStamp - previousTimeStamp;
+            //retry request
+            if(difference <= gap) {
+                retryCount++;
+            }
+        }
+        //update current timestamp
+        map.set(currentRequestId, currentTimeStamp);
+    }
+    return retryCount;
+};
+
+console.log(getRetryCount(gap, requestIds, timestamps));
+
+//time complexity = o(n)
+//space complexity = o(n)
 ```
