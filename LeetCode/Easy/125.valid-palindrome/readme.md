@@ -76,3 +76,51 @@ function isAlphanumeric(c) {
   );
 }
 ```
+
+# solution 2
+```js
+const str = "A man, a plan, a canal: Panama";
+
+const isAlphaNumeric = (char) => {
+    return /^[a-z0-9]$/i.test(char);
+
+/* 
+^         start
+[a-z0-9] one valid char
+$         end
+i         case insensitive
+*/
+}
+
+const isPalindrome = (str) => {
+    let left = 0;
+    let right = str.length - 1;
+
+    while (left < right) {
+        //skip spaces or commas from left
+        while(left < right && !isAlphaNumeric(str[left])) {
+            left++;
+        }
+
+        //skip spaces or commans from right
+        while(left < right && !isAlphaNumeric(str[right])) {
+            right--;
+        }
+
+        //check if char is same
+        if(
+            str[left].toLowerCase() !==
+            str[right].toLowerCase()
+        ) {
+            return false;
+        }
+
+        left++;
+        right--;
+    }
+
+    return true;
+}
+
+console.log(isPalindrome(str));
+```
