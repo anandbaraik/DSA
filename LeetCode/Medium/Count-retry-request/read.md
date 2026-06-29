@@ -96,7 +96,7 @@ var getRetryCount = function(gap, requestIds, timestamps) {
 };
 
 ```
-#solution
+# solution
 
 ```js
 /**
